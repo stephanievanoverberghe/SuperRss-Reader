@@ -1,12 +1,76 @@
+body {
+    background-color: #fffadf;
+    color: #561d25;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+h1, h2, h5 {
+    font-weight: bold;
+}
+
+.navbar {
+    min-height: 15vh;
+    background-color: #f26101;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* .navbar-brand {
+    width: 10%;
+} */
+
+.nav-link {
+    color: #561d25;
+    font-weight: bold;
+    font-size: 2rem;
+}
 
 .columnSubject {
-    background-color: brown;
+    background-color: #ffffff;
 }
 
 .card {
     width: 20rem;
+    background-color: #f26201;
+}
+
+.card h5 {
+    color: #ffffff;
+}
+
+.form-check-label:checked {
+    background-color: #f26201;
+}
+
+.btn {
+    background-color: #fffadf;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #561d25;
+}
+
+.btn:hover {
+    background-color: #561d25;
+    color: #fffadf;
+}
+
+#save {
+    background-color: #f26201;
+    color: #fffadf;
+}
+
+#save:hover {
+    background-color: #561d25;
+    color: #fffadf;
+}
+
+.questionToUser {
+    font-size: 1.5rem;
 }
 
 footer {
-    background-color: grey;
+    background-color: #f26201;
 }
