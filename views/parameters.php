@@ -38,7 +38,9 @@
                                     <label class="form-check-label ms-3" for="dreamcast">Dreamcast</label>
                                 </div>
                             </div>
-                            <?= $error['subject'] ?? '' ?>
+                            <div class="d-flex justify-content-center">
+                                <small class="text-center text-danger"><?= $error['subject'] ?? '' ?></small>
+                            </div>
                         </div>
                     </div>
 
@@ -48,7 +50,7 @@
                             <h2 class="text-center my-5 questionToUser">Combien d'articles souhaitez-vous par catégorie sur la page d'accueil ?</h2>
                             <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
                                 <div class="ps-3 d-inline d-flex align-items-center mb-4 mb-lg-0">
-                                    <input type="radio" name="articlesNumber" value="1" id="articlesNumber6" class="form-check-input me-2">
+                                    <input type="radio" name="articlesNumber" value="6" id="articlesNumber6" class="form-check-input me-2">
                                     <label class="form-check-label" for="articlesNumber6">6</label>
                                 </div>
                                 <div class="ps-3 d-inline d-flex align-items-center mb-4 mb-lg-0">
@@ -60,7 +62,10 @@
                                     <label class="form-check-label" for="articlesNumber12">12</label>
                                 </div>
                             </div>
-                            <small class="text-center text-danger"><?= $error['articlesNumber'] ?? '' ?></small>
+                            <div class="d-flex justify-content-center">
+                                <small class="text-center text-danger"><?= $error['articlesNumber'] ?? '' ?></small>
+                            </div>
+
                         </div>
                     </div>
 

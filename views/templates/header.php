@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-dark navbar-expand-lg">
+        <nav class="navbar navbar-light navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../../controllers/home-controller.php"><img src="../../public/assets/img/logo.png" alt="Logo du site" class="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
