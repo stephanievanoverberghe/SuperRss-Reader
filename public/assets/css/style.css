@@ -41,6 +41,11 @@ h1, h2, h5 {
     color: #ffffff;
 }
 
+.formPart {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
 .form-check-label:checked {
     background-color: #f26201;
 }

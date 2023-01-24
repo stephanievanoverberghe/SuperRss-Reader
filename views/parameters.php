@@ -10,9 +10,9 @@
             <div class="col">
                 <form action="" method="GET">
                     <div class="row justify-content-center mb-5">
-                        <div class="col">
+                        <div class="col-12 col-lg-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Choisissez trois sujets parmi les suivants :</h2>
-                            <div class="d-flex flex-column flex-md-row justify-content-around">
+                            <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="1" id="pc">
                                     <label class="form-check-label" for="pc">PC</label>
@@ -43,10 +43,10 @@
                     </div>
 
 
-                    <div class="row mb-5">
-                        <div class="col">
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-12 col-lg-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Combien d'articles souhaitez-vous par catégorie sur la page d'accueil ?</h2>
-                            <div class="d-flex flex-column flex-md-row justify-content-around">
+                            <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
                                 <div class="ps-3 d-inline"><input type="radio" name="articlesNumber" value="1" id="articlesNumber6" class="form-check-input me-2">
                                     <label class="form-check-label" for="articlesNumber6">6</label>
                                 </div>
