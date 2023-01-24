@@ -1,7 +1,7 @@
 <footer>
-    <div class="container-fluid">
+    <div class="container-fluid py-4">
     <div class="row">
-        <div class="col">
+        <div class="col d-flex justify-content-center">
             <div>Je suis le footer</div>
         </div>
     </div>
