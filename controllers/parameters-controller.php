@@ -2,19 +2,23 @@
 
 require_once(__DIR__ . '/../config/constants.php');
 
-include_once(__DIR__ . '/../views/templates/header.php');
-
 $error = [];
 
+// if (isset($_GET['subjects']) || isset($_GET['articlesNumber'])) {
+//     // var_dump($_GET['subjects']);
 
+//     $subjects = filter_input(INPUT_POST, 'subjects', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
 
-$subjects = filter_input(INPUT_POST, 'subjects[]', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
+//     var_dump($subjects);
 
-foreach ($subjects as $value) {
-    if ($value < 1 || $value > 6) {
-        $error['subject'] = 'Sujet non reconnu';
-    }
-}
+//     foreach ($subjects as $value) {
+//         if ($value < 0 || $value >= count(SUBJECT)) {
+//             $error['subject'] = 'Sujet non reconnu';
+//             var_dump('Le message erreur donne ça :' . $error['subject']);
+//         }
+//     }
+// }
+
 
 
 
@@ -31,7 +35,7 @@ foreach ($subjects as $value) {
 // }
 
 
-
+include_once(__DIR__ . '/../views/templates/header.php');
 
 include(__DIR__ . '/../views/parameters.php');
 

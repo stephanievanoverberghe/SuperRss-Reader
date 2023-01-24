@@ -2,7 +2,7 @@
     <div class="container-fluid py-4">
     <div class="row">
         <div class="col d-flex justify-content-center">
-            <div>Je suis le footer</div>
+            <div>© Flux Gaming</div>
         </div>
     </div>
     </div>
