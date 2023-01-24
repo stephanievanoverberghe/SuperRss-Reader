@@ -22,7 +22,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
                 
@@ -32,13 +32,13 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
             </div>
 
             <!-- SUJET 2 -->
-            <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5">
+            <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
                 <h2 class="text-center mt-5 mt-lg-0">Sujet 2</h2>
 
                 <div class="card mt-5">
@@ -47,7 +47,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
 
@@ -57,13 +57,13 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
             </div>
 
             <!-- SUJET 3 -->
-            <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5">
+            <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
                 <h2 class="text-center mt-5 mt-lg-0">Sujet 3</h2>
                 
                 <div class="card mt-5">
@@ -72,7 +72,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">Titre de l'article</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Lire l'article</a>
+                        <a href="#" class="btn px-5 py-2">Lire l'article</a>
                     </div>
                 </div>
                 

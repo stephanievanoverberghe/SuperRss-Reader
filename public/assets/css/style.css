@@ -33,7 +33,7 @@ h1, h2, h5 {
 }
 
 .card {
-    width: 20rem;
+    width: 90%;
     background-color: #f26201;
 }
 
@@ -46,7 +46,13 @@ h1, h2, h5 {
     border-radius: 20px;
 }
 
-.form-check-label:checked {
+.form-check-input {
+    border-color: #f26101;
+    height: 2rem;
+    width: 2rem;
+}
+
+.form-check-input:checked {
     background-color: #f26201;
 }
 

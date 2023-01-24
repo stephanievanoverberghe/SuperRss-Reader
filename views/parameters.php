@@ -10,32 +10,32 @@
             <div class="col">
                 <form action="" method="GET">
                     <div class="row justify-content-center mb-5">
-                        <div class="col-12 col-lg-11 formPart">
+                        <div class="col-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Choisissez trois sujets parmi les suivants :</h2>
                             <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="1" id="pc">
-                                    <label class="form-check-label" for="pc">PC</label>
+                                    <label class="form-check-label ms-3" for="pc">PC</label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="2" id="xbox">
-                                    <label class="form-check-label" for="xbox">XBOX</label>
+                                    <label class="form-check-label ms-3" for="xbox">XBOX</label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="3" id="ps5">
-                                    <label class="form-check-label" for="ps5">PS5</label>
+                                    <label class="form-check-label ms-3" for="ps5">PS5</label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="4" id="switch">
-                                    <label class="form-check-label" for="switch">Switch</label>
+                                    <label class="form-check-label ms-3" for="switch">Switch</label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="5" id="gameboy">
-                                    <label class="form-check-label" for="gameboy">Game Boy</label>
+                                    <label class="form-check-label ms-3" for="gameboy">Game Boy</label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check d-flex align-items-center">
                                     <input class="form-check-input" type="checkbox" name="subjects[]" value="6" id="dreamcast">
-                                    <label class="form-check-label" for="dreamcast">Dreamcast</label>
+                                    <label class="form-check-label ms-3" for="dreamcast">Dreamcast</label>
                                 </div>
                             </div>
                             <?= $error['subject'] ?? '' ?>
@@ -44,16 +44,16 @@
 
 
                     <div class="row justify-content-center mb-5">
-                        <div class="col-12 col-lg-11 formPart">
+                        <div class="col-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Combien d'articles souhaitez-vous par catégorie sur la page d'accueil ?</h2>
                             <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
-                                <div class="ps-3 d-inline"><input type="radio" name="articlesNumber" value="1" id="articlesNumber6" class="form-check-input me-2">
+                                <div class="ps-3 d-inline d-flex align-items-center"><input type="radio" name="articlesNumber" value="1" id="articlesNumber6" class="form-check-input me-2">
                                     <label class="form-check-label" for="articlesNumber6">6</label>
                                 </div>
-                                <div class="ps-3 d-inline"><input type="radio" name="articlesNumber" value="9" id="articlesNumber9" class="form-check-input me-2">
+                                <div class="ps-3 d-inline d-flex align-items-center"><input type="radio" name="articlesNumber" value="9" id="articlesNumber9" class="form-check-input me-2">
                                     <label class="form-check-label" for="articlesNumber9">9</label>
                                 </div>
-                                <div class="ps-3 d-inline"><input type="radio" name="articlesNumber" value="12" id="articlesNumber12" class="form-check-input me-2">
+                                <div class="ps-3 d-inline d-flex align-items-center"><input type="radio" name="articlesNumber" value="12" id="articlesNumber12" class="form-check-input me-2">
                                     <label class="form-check-label" for="articlesNumber12">12</label>
                                 </div>
                             </div>
