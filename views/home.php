@@ -16,7 +16,7 @@
                 <div>
                     <h2 class="text-center">Sujet 1</h2>
                 </div>
-                <?php foreach ($dreamcastItems as $article) {
+                <?php foreach ($url1Items as $article) {
                     $namespaces = $article->getNamespaces(true);
                     $namespaceDc = $article->children($namespaces['dc']);
                     $date = date("j / m / Y ", (strtotime($namespaceDc->date)));
@@ -36,7 +36,10 @@
             <!-- SUJET 2 -->
             <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
                 <h2 class="text-center mt-5 mt-lg-0">Sujet 2</h2>
-                <?php foreach ($xboxItems as $article) { ?>
+                <?php foreach ($url2Items as $article) {
+                    $namespaces = $article->getNamespaces(true);
+                    $namespaceDc = $article->children($namespaces['dc']);
+                    $date = date("j / m / Y ", (strtotime($namespaceDc->date))); ?>
                     <div class="card mt-5">
                         <img src="<?= $article->enclosure['url'] ?? '' ?>" class="card-img-top" alt="Article Image">
                         <small class="text-center">Publié le <?= $date ?></small>
@@ -51,7 +54,10 @@
             <!-- SUJET 3 -->
             <div class="col-12 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
                 <h2 class="text-center mt-5 mt-lg-0">Sujet 3</h2>
-                <?php foreach ($pcItems as $article) { ?>
+                <?php foreach ($url3Items as $article) {
+                    $namespaces = $article->getNamespaces(true);
+                    $namespaceDc = $article->children($namespaces['dc']);
+                    $date = date("j / m / Y ", (strtotime($namespaceDc->date))); ?>
                     <div class="card mt-5">
                         <img src="<?= $article->enclosure['url'] ?? '' ?>" class="card-img-top" alt="Article Image">
                         <small class="text-center">Publié le <?= $date ?></small>
