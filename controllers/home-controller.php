@@ -18,7 +18,7 @@ $articlesNumber = 6;
 //  Si aucun cookie, url = ceux que l'on veut sinon prendre ceux du cookie
 if (empty($_COOKIE)) {
 
-    $urls = ['https://www.jeuxactu.com/rss/dreamcast.rss', 'https://www.jeuxactu.com/rss/xbox-series-x.rss', 'https://www.jeuxactu.com/rss/pc.rss'];
+    $urls = ['https://www.jeuxactu.com/rss/switch.rss', 'https://www.jeuxactu.com/rss/xbox-series-x.rss', 'https://www.jeuxactu.com/rss/pc.rss'];
 } else {
     $urls = unserialize($_COOKIE['subjectsUrls']);
 }
@@ -41,15 +41,9 @@ for ($i = 0; $i < $articlesNumber; $i++) {
 $url3 = simplexml_load_file($urls[2]);
 $dataUrl3 = $url3->channel->item;
 for ($i = 0; $i < $articlesNumber; $i++) {
-    $url3Items[] = $dataUrl1[$i];
+    $url3Items[] = $dataUrl3[$i];
 }
 
-
-include_once(__DIR__ . '/../views/templates/header.php');
-
-include(__DIR__ . '/../views/home.php');
-
-include_once(__DIR__ . '/../views/templates/footer.php');
 
 include(__DIR__ . '/../views/home.php');
 
