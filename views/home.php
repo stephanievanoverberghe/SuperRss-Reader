@@ -16,10 +16,14 @@
                 <div>
                     <h2 class="text-center">Sujet 1</h2>
                 </div>
-                <?php foreach ($dreamcastItems as $article) { ?>
+                <?php foreach ($dreamcastItems as $article) {
+                    $namespaces = $article->getNamespaces(true);
+                    $namespaceDc = $article->children($namespaces['dc']);
+                    $date = date("j / m / Y ", (strtotime($namespaceDc->date)));
+                ?>
                     <div class="card mt-5">
                         <img src="<?= $article->enclosure['url'] ?? '' ?>" class="card-img-top" alt="Article Image">
-                        <small class="text-center">Publié le 16/05/6599</small>
+                        <small class="text-center">Publié le <?= $date ?></small>
                         <div class="card-body text-center">
                             <h5 class="card-title"><?= $article->title ?? '' ?></h5>
                             <p class="card-text"><?= $article->description ?? '' ?></p>
@@ -35,7 +39,7 @@
                 <?php foreach ($xboxItems as $article) { ?>
                     <div class="card mt-5">
                         <img src="<?= $article->enclosure['url'] ?? '' ?>" class="card-img-top" alt="Article Image">
-                        <small class="text-center">Publié le 16/05/6599</small>
+                        <small class="text-center">Publié le <?= $date ?></small>
                         <div class="card-body text-center">
                             <h5 class="card-title"><?= $article->title ?? '' ?></h5>
                             <p class="card-text"><?= $article->description ?? '' ?></p>
@@ -50,10 +54,7 @@
                 <?php foreach ($pcItems as $article) { ?>
                     <div class="card mt-5">
                         <img src="<?= $article->enclosure['url'] ?? '' ?>" class="card-img-top" alt="Article Image">
-                        <small class="text-center">Publié le <?php
-                                                                $namespaces = $article->getNamespaces(true);
-                                                                $namespaceDc = $article->children($namespaces['dc']);
-                                                                echo date("j / m / Y ", (strtotime($namespaceDc->date)))  ?></small>
+                        <small class="text-center">Publié le <?= $date ?></small>
                         <div class="card-body text-center">
                             <h5 class="card-title"><?= $article->title ?? '' ?></h5>
                             <p class="card-text"><?= $article->description ?? '' ?></p>
