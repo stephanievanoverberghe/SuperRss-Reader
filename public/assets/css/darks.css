@@ -1,0 +1,104 @@
+body {
+    background-color: #202124;
+    color: #f26101;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+h1, h2, h5 {
+    font-weight: bold;
+}
+
+.navbar {
+    min-height: 15vh;
+    background-color: #171717;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* .navbar-brand {
+    width: 10%;
+} */
+
+.nav-link {
+    color: #f26201;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.nav-link:hover{
+    color: #fffadf;
+}
+
+.columnSubject {
+    background-color: #171717;
+}
+
+.card {
+    width: 90%;
+    background-color: #696969;
+}
+
+.card h5 {
+    color: #171717;
+}
+
+.card-text{
+    color: #171717;
+}
+
+small{
+    color: #171717;
+}
+
+.formPart {
+    background-color: #171717;
+    border-radius: 20px;
+}
+
+.form-check-input {
+    background-color: #fffadf;
+    height: 2rem;
+    width: 2rem;
+}
+
+.form-check-input:checked {
+    background-color: #f26201;
+}
+
+.form-check-label {
+    color: #ffa970;
+}
+
+.btn {
+    background-color: #171717;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #f26201;
+}
+
+.btn:hover {
+    background-color: #f26201;
+    color: #171717;
+}
+
+#save {
+    background-color: #f26201;
+    color: #171717;
+}
+
+#save:hover {
+    background-color: #171717;
+    color: #f26201;
+}
+
+.questionToUser {
+    font-size: 1.5rem;
+    color: #ffa970;
+}
+
+footer {
+    background-color: #171717;
+} 
