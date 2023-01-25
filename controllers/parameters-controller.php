@@ -12,39 +12,42 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber'])) {
         $error['subject'] = 'Veuillez choisir trois sujets';
     } else {
 
-    // VERIFCATION SUR LA RECUPERATION DES SUJETS
-    if (count($_GET['subjects']) > 3) {
-        $error['subject'] = 'Veuillez choisir uniquement trois sujets';
-    } else if (count($_GET['subjects']) < 3) {
-        $error['subject'] = 'Veuillez choisir trois sujets';
-    } else {
-        $subjects = filter_input(INPUT_GET, 'subjects', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
+        // VERIFCATION SUR LA RECUPERATION DES SUJETS
+        if (count($_GET['subjects']) > 3) {
+            $error['subject'] = 'Veuillez choisir uniquement trois sujets';
+        } else if (count($_GET['subjects']) < 3) {
+            $error['subject'] = 'Veuillez choisir trois sujets';
+        } else {
+            $subjects = filter_input(INPUT_GET, 'subjects', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
 
-        foreach ($subjects as $value) {
-            if ($value < 0 || $value >= count(SUBJECT)) {
-                $error['subject'] = 'Sujet non reconnu';
+            foreach ($subjects as $value) {
+                if ($value < 0 || $value >= count(SUBJECT)) {
+                    $error['subject'] = 'Sujet non reconnu';
+                }
             }
         }
-    }
 
-    // VERFICATION SUR LA RECUPERATION DU NOMBRE D'ARTICLES
-    $articlesNumber = intval(filter_input(INPUT_GET, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
+        // VERFICATION SUR LA RECUPERATION DU NOMBRE D'ARTICLES
+        $articlesNumber = intval(filter_input(INPUT_GET, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
 
-    if ($articlesNumber != 6 && $articlesNumber != 9 && $articlesNumber != 12) {
-        $error['articlesNumber'] = 'Nombre d\'articles non valide';
-    }
+        if ($articlesNumber != 6 && $articlesNumber != 9 && $articlesNumber != 12) {
+            $error['articlesNumber'] = 'Nombre d\'articles non valide';
+        }
     }
 
     if (empty($error)) {
 
-        // setcookie('subjects', $subjects, time()+3600);
-        
-        setcookie('subjects', serialize($subjects), time()+3600);
-        setcookie('articlesNumber', $articlesNumber, time()+3600);
+        // $subjects = array_replace($subjects, URL);
+        $subjects = array_intersect_key(URL, $subjects);
+        var_dump($subjects);
 
-        var_dump(unserialize($_COOKIE['subjects']));
+        // On serialize pour convertir le tableau en chaine dans le cookie
+        setcookie('subjects', serialize($subjects), time() + 3600);
+        setcookie('articlesNumber', $articlesNumber, time() + 3600);
+
+        // Pour réexploité le tableau, on le reconverti derrière
+        // var_dump(unserialize($_COOKIE['subjects']));
     }
-
 }
 
 
