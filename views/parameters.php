@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="col">
-                <form method="GET">
+                <form method="POST">
                 <div class="row justify-content-center mb-5">
                         <div class="col-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Choix du thème :</h2>

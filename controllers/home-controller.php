@@ -1,5 +1,28 @@
 <?php
 
+require_once(__DIR__ . '/../config/constants.php');
+require_once(__DIR__ . '/../config/functions.php');
+
+if (isset($_COOKIE['subjectsUrls'])) {
+    $subjects = unserialize($_COOKIE['subjectsUrls']);
+
+
+    $subjectOne = get_Key(SUBJECT_TITLE, $subjects[0]);
+    $subjectTwo = get_Key(SUBJECT_TITLE, $subjects[1]);
+    $subjectThree = get_Key(SUBJECT_TITLE, $subjects[2]);
+
+    foreach($subjectOne as $value) {
+        $subjectOne = $value;
+    }
+
+    foreach($subjectTwo as $value) {
+        $subjectTwo = $value;
+    }
+
+    foreach($subjectThree as $value) {
+        $subjectThree = $value;
+    }
+}
 
 
 include_once(__DIR__ . '/../views/templates/header.php');
@@ -13,15 +36,17 @@ $xboxUrl = simplexml_load_file('https://www.jeuxactu.com/rss/xbox-series-x.rss')
 $switchUrl = simplexml_load_file('https://www.jeuxactu.com/rss/switch.rss');
 
 // $GET['articlesNumber'] issu de la radio
+
 $articlesNumber = 6;
 // recupérer le choix du sujet pour créer un tableaux
 // utilisé array_keys($Subject, searchValue) return clef contenant ces valeurs;
 
 //  Si aucun cookie, url = ceux que l'on veut sinon prendre ceux du cookie
 if (empty($_COOKIE)) {
-
+    $articlesNumber = 6;
     $urls = ['https://www.jeuxactu.com/rss/switch.rss', 'https://www.jeuxactu.com/rss/xbox-series-x.rss', 'https://www.jeuxactu.com/rss/pc.rss'];
 } else {
+    $articlesNumber = $_COOKIE['articlesNumber'];
     $urls = unserialize($_COOKIE['subjectsUrls']);
 }
 // Sujet 1

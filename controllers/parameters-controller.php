@@ -1,12 +1,14 @@
 <?php
 
 require_once(__DIR__ . '/../config/constants.php');
+require_once(__DIR__ . '/../config/functions.php');
 
 $error = [];
 
-if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET['themeChoice'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (empty($_GET['subjects']) || empty($_GET['articlesNumber']) || empty($_GET['themeChoice'])) {
+
+    if (empty($_POST['subjects']) || empty($_POST['articlesNumber']) || empty($_POST['themeChoice'])) {
         $error['articlesNumber'] = 'Veuillez choisir un nombre d\'articles';
         $error['subject'] = 'Veuillez choisir trois sujets';
         $error['theme'] = 'Veuillez choisir un thème';
@@ -15,18 +17,18 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET
 // -------------------------------------------------------------------------------------------------------------------
         // VERIFICATION SUR LE CHOIX DU THEME
 
-        $themeChoice = intval(filter_input(INPUT_GET, 'themeChoice', FILTER_SANITIZE_NUMBER_INT));
+        $themeChoice = intval(filter_input(INPUT_POST, 'themeChoice', FILTER_SANITIZE_NUMBER_INT));
         
 
 
 // -------------------------------------------------------------------------------------------------------------------
         // VERIFCATION SUR LA RECUPERATION DES SUJETS
-        if (count($_GET['subjects']) > 3) {
+        if (count($_POST['subjects']) > 3) {
             $error['subject'] = 'Veuillez choisir uniquement trois sujets';
-        } else if (count($_GET['subjects']) < 3) {
+        } else if (count($_POST['subjects']) < 3) {
             $error['subject'] = 'Veuillez choisir trois sujets';
         } else {
-            $subjects = filter_input(INPUT_GET, 'subjects', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
+            $subjects = filter_input(INPUT_POST, 'subjects', FILTER_SANITIZE_NUMBER_INT, FILTER_REQUIRE_ARRAY) ?? [];
 
             foreach ($subjects as $value) {
                 if ($value < 0 || $value >= count(SUBJECT)) {
@@ -37,7 +39,7 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET
 
 // -------------------------------------------------------------------------------------------------------------------
         // VERFICATION SUR LA RECUPERATION DU NOMBRE D'ARTICLES
-        $articlesNumber = intval(filter_input(INPUT_GET, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
+        $articlesNumber = intval(filter_input(INPUT_POST, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
 
         if ($articlesNumber != 6 && $articlesNumber != 9 && $articlesNumber != 12) {
             $error['articlesNumber'] = 'Nombre d\'articles non valide';
@@ -51,9 +53,9 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET
         }
         
         // On serialize pour convertir le tableau en chaine dans le cookie
-        setcookie('themeChoice', $themeChoice, time() + 3600);
-        setcookie('subjectsUrls', serialize($subjectsUrls), time() + 3600);
-        setcookie('articlesNumber', $articlesNumber, time() + 3600);
+        setcookie('themeChoice', $themeChoice, time() + 3600, '/');
+        setcookie('subjectsUrls', serialize($subjectsUrls), time() + 3600, '/');
+        setcookie('articlesNumber', $articlesNumber, time() + 3600, '/');
         
         // Pour réexploité le tableau, on le reconverti derrière
         // var_dump(unserialize($_COOKIE['subjectsUrls']));
@@ -62,7 +64,7 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET
 
 
 
-if (empty($_GET['subjects']) || !empty($error) || empty($_GET['articlesNumber'])) {
+if (empty($_POST['subjects']) || !empty($error) || empty($_POST['articlesNumber'])) {
     
     include_once(__DIR__ . '/../views/templates/header.php');
     include(__DIR__ . '/../views/parameters.php');

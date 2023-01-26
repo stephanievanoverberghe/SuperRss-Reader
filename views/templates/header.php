@@ -1,5 +1,6 @@
 <?php
 
+
 if (!empty($_COOKIE['themeChoice'])) {
     $link = ($_COOKIE['themeChoice'] == 1) ? '<link rel="stylesheet" href="../public/assets/css/light.css" id="styleChange">' : '<link rel="stylesheet" href="../public/assets/css/dark.css" id="styleChange">';
     $logoSrc = ($_COOKIE['themeChoice'] == 1) ? '../../public/assets/img/logo.png' : '../../public/assets/img/logo2.png';
@@ -10,6 +11,26 @@ if (!empty($_COOKIE['themeChoice'])) {
     $logoSrc = '../../public/assets/img/logo.png';
     $settingsSrc = '../../public/assets/img/engrenage.png';
     $changeColorSrc = '../../public/assets/img/soleil.png';
+}
+
+if (isset($_COOKIE['subjectsUrls'])) {
+    $subjects = unserialize($_COOKIE['subjectsUrls']);
+
+    $subjectOne = get_Key(SUBJECT_TITLE, $subjects[0]);
+    $subjectTwo = get_Key(SUBJECT_TITLE, $subjects[1]);
+    $subjectThree = get_Key(SUBJECT_TITLE, $subjects[2]);
+
+    foreach ($subjectOne as $value) {
+        $subjectOne = $value;
+    }
+
+    foreach ($subjectTwo as $value) {
+        $subjectTwo = $value;
+    }
+
+    foreach ($subjectThree as $value) {
+        $subjectThree = $value;
+    }
 }
 
 ?>
@@ -39,13 +60,13 @@ if (!empty($_COOKIE['themeChoice'])) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-self-center justify-content-around mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php">Sujet 1</a>
+                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectOne ?? '' ?></a>
                         </li>
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php">Sujet 2</a>
+                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectTwo ?? '' ?></a>
                         </li>
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php">Sujet 3</a>
+                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectThree ?? '' ?></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav d-flex align-items-lg-center mb-2 mb-lg-0">
