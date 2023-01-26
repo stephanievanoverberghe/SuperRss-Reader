@@ -9,7 +9,9 @@ body {
     min-height: 100vh;
 }
 
-h1, h2, h5 {
+h1,
+h2,
+h5 {
     font-weight: bold;
 }
 
@@ -28,7 +30,7 @@ h1, h2, h5 {
     font-size: 2rem;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: #fffadf;
 }
 
@@ -38,12 +40,12 @@ h1, h2, h5 {
 
 .card {
     width: 90%;
-    height: 75vh;
+    height: 82vh;
     background-color: #696969;
 }
 
 .card img {
-    height: 25vh;
+    height: 30vh;
     object-fit: cover;
 }
 
@@ -51,11 +53,11 @@ h1, h2, h5 {
     color: #ffa970;
 }
 
-.card-text{
+.card-text {
     color: #171717;
 }
 
-small{
+small {
     color: #171717;
 }
 
