@@ -32,7 +32,6 @@ if (isset($_COOKIE['subjectsUrls'])) {
         $subjectThree = $value;
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -60,13 +59,13 @@ if (isset($_COOKIE['subjectsUrls'])) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav d-flex align-self-center justify-content-around mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectOne ?? '' ?></a>
+                            <a class="nav-link mx-2 mx-xxl-5" href='../../controllers/pages-controller.php?sujet=1'><?= $subjectOne ?? '' ?></a>
                         </li>
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectTwo ?? '' ?></a>
+                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php?sujet=2"><?= $subjectTwo ?? '' ?></a>
                         </li>
                         <li class="nav-item px-lg-4 px-xxl-5">
-                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php"><?= $subjectThree ?? '' ?></a>
+                            <a class="nav-link mx-2 mx-xxl-5" href="../../controllers/pages-controller.php?sujet=3"><?= $subjectThree ?? '' ?></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav d-flex align-items-lg-center mb-2 mb-lg-0">
