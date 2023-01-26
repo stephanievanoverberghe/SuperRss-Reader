@@ -38,12 +38,12 @@ h1, h2, h5 {
 
 .card {
     width: 90%;
-    height: 75vh;
+    height: 82vh;
     background-color: #696969;
 }
 
 .card img {
-    height: 25vh;
+    height: 30vh;
     object-fit: cover;
 }
 
