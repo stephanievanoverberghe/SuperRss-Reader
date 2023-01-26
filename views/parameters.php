@@ -33,30 +33,14 @@
                         <div class="col-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Choisissez trois sujets parmi les suivants :</h2>
                             <div class="d-flex flex-column flex-md-row justify-content-around pb-5">
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="0" id="pc">
-                                    <label class="form-check-label ms-3" for="pc">PC</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="1" id="xbox">
-                                    <label class="form-check-label ms-3" for="xbox">XBOX</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="2" id="ps5">
-                                    <label class="form-check-label ms-3" for="ps5">PS5</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="3" id="switch">
-                                    <label class="form-check-label ms-3" for="switch">Switch</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="4" id="gameboy">
-                                    <label class="form-check-label ms-3" for="gameboy">Game Boy</label>
-                                </div>
-                                <div class="form-check d-flex align-items-center mb-4 mb-lg-0">
-                                    <input class="form-check-input" type="checkbox" name="subjects[]" value="5" id="dreamcast">
-                                    <label class="form-check-label ms-3" for="dreamcast">Dreamcast</label>
-                                </div>
+                                <?php
+                                    foreach(SUBJECT as $value => $key) {
+                                    echo '<div class="form-check d-flex align-items-center mb-4 mb-lg-0">
+                                    <input class="form-check-input" type="checkbox" name="subjects[]" value='.$value.' id='.$key.'>
+                                    <label class="form-check-label ms-3" for='.$key.'>'.$key.'</label>
+                                    </div>';
+                                    }
+                                ?>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <small class="text-center text-danger"><?= $error['subject'] ?? '' ?></small>
