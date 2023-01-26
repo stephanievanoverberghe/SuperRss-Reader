@@ -38,6 +38,7 @@ h1, h2, h5 {
 
 .card {
     width: 90%;
+    height: 75vh;
     background-color: #696969;
 }
 
@@ -47,7 +48,7 @@ h1, h2, h5 {
 }
 
 .card h5 {
-    color: #171717;
+    color: #ffa970;
 }
 
 .card-text{
