@@ -6,9 +6,29 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="col">
-                <form action="" method="GET">
+                <form method="GET">
+                <div class="row justify-content-center mb-5">
+                        <div class="col-11 formPart">
+                            <h2 class="text-center my-5 questionToUser">Choix du thème :</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-evenly pb-5">
+                                <div class="ps-3 d-inline d-flex align-items-center mb-4 mb-lg-0">
+                                    <input type="radio" name="themeChoice" value="1" id="light" class="form-check-input me-2">
+                                    <label class="form-check-label" for="light">Clair</label>
+                                </div>
+                                <div class="ps-3 d-inline d-flex align-items-center mb-4 mb-lg-0">
+                                    <input type="radio" name="themeChoice" value="2" id="dark" class="form-check-input me-2">
+                                    <label class="form-check-label" for="dark">Sombre</label>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <small class="text-center text-danger"><?= $error['theme'] ?? '' ?></small>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row justify-content-center mb-5">
                         <div class="col-11 formPart">
                             <h2 class="text-center my-5 questionToUser">Choisissez trois sujets parmi les suivants :</h2>
@@ -65,7 +85,6 @@
                             <div class="d-flex justify-content-center">
                                 <small class="text-center text-danger"><?= $error['articlesNumber'] ?? '' ?></small>
                             </div>
-
                         </div>
                     </div>
 

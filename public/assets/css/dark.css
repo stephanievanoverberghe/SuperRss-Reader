@@ -5,6 +5,10 @@ body {
     font-weight: bold;
 }
 
+.error {
+    min-height: 100vh;
+}
+
 h1, h2, h5 {
     font-weight: bold;
 }
@@ -17,10 +21,6 @@ h1, h2, h5 {
 .logo {
     width: 120px;
 }
-
-/* .navbar-brand {
-    width: 10%;
-} */
 
 .nav-link {
     color: #f26201;
@@ -39,6 +39,11 @@ h1, h2, h5 {
 .card {
     width: 90%;
     background-color: #696969;
+}
+
+.card img {
+    height: 25vh;
+    object-fit: cover;
 }
 
 .card h5 {
@@ -101,4 +106,23 @@ small{
 
 footer {
     background-color: #171717;
-} 
+}
+
+#themeColor {
+    background-color: #202124;
+    border-radius: 50px;
+    width: 80px;
+}
+
+#themeColor img {
+    width: 80%;
+}
+
+#back {
+    background-color: #561d25;
+    color: #fffadf;
+}
+
+#oops {
+    font-size: 3rem;
+}

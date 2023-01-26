@@ -4,14 +4,22 @@ require_once(__DIR__ . '/../config/constants.php');
 
 $error = [];
 
-if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber'])) {
+if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber']) || !empty($_GET['themeChoice'])) {
 
-    if (!empty($_GET['subjects']) && empty($_GET['articlesNumber'])) {
+    if (empty($_GET['subjects']) || empty($_GET['articlesNumber']) || empty($_GET['themeChoice'])) {
         $error['articlesNumber'] = 'Veuillez choisir un nombre d\'articles';
-    } else if (empty($_GET['subjects']) && !empty($_GET['articlesNumber'])) {
         $error['subject'] = 'Veuillez choisir trois sujets';
+        $error['theme'] = 'Veuillez choisir un thème';
     } else {
 
+// -------------------------------------------------------------------------------------------------------------------
+        // VERIFICATION SUR LE CHOIX DU THEME
+
+        $themeChoice = intval(filter_input(INPUT_GET, 'themeChoice', FILTER_SANITIZE_NUMBER_INT));
+        
+
+
+// -------------------------------------------------------------------------------------------------------------------
         // VERIFCATION SUR LA RECUPERATION DES SUJETS
         if (count($_GET['subjects']) > 3) {
             $error['subject'] = 'Veuillez choisir uniquement trois sujets';
@@ -27,6 +35,7 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber'])) {
             }
         }
 
+// -------------------------------------------------------------------------------------------------------------------
         // VERFICATION SUR LA RECUPERATION DU NOMBRE D'ARTICLES
         $articlesNumber = intval(filter_input(INPUT_GET, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
 
@@ -36,24 +45,36 @@ if (!empty($_GET['subjects']) || !empty($_GET['articlesNumber'])) {
     }
 
     if (empty($error)) {
-
-        // $subjects = array_replace($subjects, URL);
-        $subjects = array_intersect_key(URL, $subjects);
-        var_dump($subjects);
-
+        $subjectsUrls = [];
+        foreach($subjects as $value) {
+            array_push($subjectsUrls,URL[$value]);
+        }
+        
         // On serialize pour convertir le tableau en chaine dans le cookie
-        setcookie('subjects', serialize($subjects), time() + 3600);
+        setcookie('themeChoice', $themeChoice, time() + 3600);
+        setcookie('subjectsUrls', serialize($subjectsUrls), time() + 3600);
         setcookie('articlesNumber', $articlesNumber, time() + 3600);
-
+        
         // Pour réexploité le tableau, on le reconverti derrière
-        // var_dump(unserialize($_COOKIE['subjects']));
+        // var_dump(unserialize($_COOKIE['subjectsUrls']));
     }
 }
 
 
 
-include_once(__DIR__ . '/../views/templates/header.php');
+if (empty($_GET['subjects']) || !empty($error) || empty($_GET['articlesNumber'])) {
+    
+    include_once(__DIR__ . '/../views/templates/header.php');
+    include(__DIR__ . '/../views/parameters.php');
+    include_once(__DIR__ . '/../views/templates/footer.php');
 
-include(__DIR__ . '/../views/parameters.php');
+} else {
 
-include_once(__DIR__ . '/../views/templates/footer.php');
+    header('location: /controllers/home-controller.php');
+    die;
+
+}
+
+
+
+
