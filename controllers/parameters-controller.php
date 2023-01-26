@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error['theme'] = 'Veuillez choisir un thème';
     } else {
 
-// -------------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------------
         // VERIFICATION SUR LE CHOIX DU THEME
 
         $themeChoice = intval(filter_input(INPUT_POST, 'themeChoice', FILTER_SANITIZE_NUMBER_INT));
-        
 
 
-// -------------------------------------------------------------------------------------------------------------------
+
+        // -------------------------------------------------------------------------------------------------------------------
         // VERIFCATION SUR LA RECUPERATION DES SUJETS
         if (count($_POST['subjects']) > 3) {
             $error['subject'] = 'Veuillez choisir uniquement trois sujets';
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-// -------------------------------------------------------------------------------------------------------------------
+        // -------------------------------------------------------------------------------------------------------------------
         // VERFICATION SUR LA RECUPERATION DU NOMBRE D'ARTICLES
         $articlesNumber = intval(filter_input(INPUT_POST, 'articlesNumber', FILTER_SANITIZE_NUMBER_INT));
 
@@ -48,15 +48,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($error)) {
         $subjectsUrls = [];
-        foreach($subjects as $value) {
-            array_push($subjectsUrls,URL[$value]);
+        foreach ($subjects as $value) {
+            array_push($subjectsUrls, URL[$value]);
         }
-        
+
         // On serialize pour convertir le tableau en chaine dans le cookie
         setcookie('themeChoice', $themeChoice, time() + 3600, '/');
         setcookie('subjectsUrls', serialize($subjectsUrls), time() + 3600, '/');
         setcookie('articlesNumber', $articlesNumber, time() + 3600, '/');
-        
+
         // Pour réexploité le tableau, on le reconverti derrière
         // var_dump(unserialize($_COOKIE['subjectsUrls']));
     }
@@ -65,18 +65,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 if (empty($_POST['subjects']) || !empty($error) || empty($_POST['articlesNumber'])) {
-    
+    // Je définis un url par défaut pour avoir des sujets par défauts
+    $urls = ['https://www.jeuxactu.com/rss/switch.rss', 'https://www.jeuxactu.com/rss/xbox-series-x.rss', 'https://www.jeuxactu.com/rss/pc.rss'];
+    $subjectDefaultOne = get_Key(SUBJECT_TITLE, $urls[0]);
+    $subjectDefaultTwo = get_Key(SUBJECT_TITLE, $urls[1]);
+    $subjectDefaultThree = get_Key(SUBJECT_TITLE, $urls[2]);
+    foreach ($subjectDefaultOne as $value) {
+        $subjectDefaultOne = $value;
+    }
+
+    foreach ($subjectDefaultTwo as $value) {
+        $subjectDefaultTwo = $value;
+    }
+
+    foreach ($subjectDefaultThree as $value) {
+        $subjectDefaultThree = $value;
+    }
     include_once(__DIR__ . '/../views/templates/header.php');
     include(__DIR__ . '/../views/parameters.php');
     include_once(__DIR__ . '/../views/templates/footer.php');
-
 } else {
 
     header('location: /controllers/home-controller.php');
     die;
-
 }
-
-
-
-

@@ -24,13 +24,26 @@ if (isset($_COOKIE['subjectsUrls'])) {
 }
 
 
-include_once(__DIR__ . '/../views/templates/header.php');
 
 
 //  Si aucun cookie, url = ceux que l'on veut sinon prendre ceux du cookie
 if (empty($_COOKIE)) {
     $articlesNumber = 6;
     $urls = ['https://www.jeuxactu.com/rss/switch.rss', 'https://www.jeuxactu.com/rss/xbox-series-x.rss', 'https://www.jeuxactu.com/rss/pc.rss'];
+    $subjectDefaultOne = get_Key(SUBJECT_TITLE, $urls[0]);
+    $subjectDefaultTwo = get_Key(SUBJECT_TITLE, $urls[1]);
+    $subjectDefaultThree = get_Key(SUBJECT_TITLE, $urls[2]);
+    foreach ($subjectDefaultOne as $value) {
+        $subjectDefaultOne = $value;
+    }
+
+    foreach ($subjectDefaultTwo as $value) {
+        $subjectDefaultTwo = $value;
+    }
+
+    foreach ($subjectDefaultThree as $value) {
+        $subjectDefaultThree = $value;
+    }
 } else {
     $articlesNumber = $_COOKIE['articlesNumber'];
     $urls = unserialize($_COOKIE['subjectsUrls']);
@@ -57,6 +70,7 @@ for ($i = 0; $i < $articlesNumber; $i++) {
     $url3Items[] = $dataUrl3[$i];
 }
 
+include_once(__DIR__ . '/../views/templates/header.php');
 
 include(__DIR__ . '/../views/home.php');
 

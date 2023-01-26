@@ -14,7 +14,7 @@
             <!-- SUJET 1 -->
             <div class="col-12 col-md-5 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
                 <div>
-                    <h2 class="text-center mt-5 mt-lg-0"><?= $subjectOne ?? '' ?></h2>
+                    <h2 class="text-center mt-5 mt-lg-0"><?= $subjectOne ?? $subjectDefaultOne ?></h2>
                 </div>
                 <?php foreach ($url1Items as $article) {
                     $namespaces = $article->getNamespaces(true);
@@ -35,7 +35,7 @@
 
             <!-- SUJET 2 -->
             <div class="col-12 col-md-5 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
-                <h2 class="text-center mt-5 mt-lg-0"><?= $subjectTwo ?? '' ?></h2>
+                <h2 class="text-center mt-5 mt-lg-0"><?= $subjectTwo ?? $subjectDefaultTwo ?></h2>
                 <?php foreach ($url2Items as $article) {
                     $namespaces = $article->getNamespaces(true);
                     $namespaceDc = $article->children($namespaces['dc']);
@@ -53,7 +53,7 @@
             </div>
             <!-- SUJET 3 -->
             <div class="col-12 col-md-5 col-lg-3 d-flex flex-column align-items-center columnSubject py-5 mt-5 mt-lg-0">
-                <h2 class="text-center mt-5 mt-lg-0"><?= $subjectThree ?? '' ?></h2>
+                <h2 class="text-center mt-5 mt-lg-0"><?= $subjectThree ?? $subjectDefaultThree ?></h2>
                 <?php foreach ($url3Items as $article) {
                     $namespaces = $article->getNamespaces(true);
                     $namespaceDc = $article->children($namespaces['dc']);
